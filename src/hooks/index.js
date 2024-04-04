@@ -1,2 +1,1 @@
-export * from './useDecrease'
-export * from './useIncrease'
+export * from './useCounter'

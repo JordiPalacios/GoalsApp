@@ -1,9 +1,10 @@
+import { MetasRouter } from "./MetasRouter"
 
 function MetasApp() {
 
   return (
     <>
-      <h1>Metas App</h1>
+      <MetasRouter />
     </>
   )
 }
