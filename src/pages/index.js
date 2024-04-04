@@ -1,3 +1,3 @@
-export * from './createGoal'
-export * from './homePage'
-export * from './usersPage'
+export * from './CreateGoal'
+export * from './HomePage'
+export * from './UsersPage'

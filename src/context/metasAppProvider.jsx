@@ -1,3 +1,3 @@
 import { createContext } from "react";
 
-export const metasAppProvider = createContext()
+export const MetasAppProvider = createContext()

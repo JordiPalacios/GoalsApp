@@ -1,4 +1,4 @@
-export const updateGoal = () => {
+export const UpdateGoal = () => {
 
     return (
         <>
