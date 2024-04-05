@@ -1,1 +1,6 @@
-@import './styles/main.css'
+@import './styles/main.css';
+@import './styles/fonts.css';
+@import './styles/homePage.css';
+@import './styles/createGoal.css';
+@import './styles/userPage.css';
+@import './styles/shared.css';
