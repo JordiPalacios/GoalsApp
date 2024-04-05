@@ -5,7 +5,7 @@ export const HomePage = () => {
     return (
         <>
             <HeaderPage />
-            <MainHome />
+            <MainHome children={' Test '}/>
             <Footer />
         </>
     )
