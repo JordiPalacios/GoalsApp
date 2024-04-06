@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom"
 
-export const NavPage = ({ navigateTo, label }) => {
+export const NavPage = ({ navigateTo, content }) => {
     return (
         <>
-            <Link to= { navigateTo } > { label } </Link>
+            <Link to= { navigateTo } > { content } </Link>
         </>
     )
 }
