@@ -1,4 +1,4 @@
-export const HeaderPage = () => {
+export const Header = () => {
     return (
         <header>
             <h1>Goals App</h1>

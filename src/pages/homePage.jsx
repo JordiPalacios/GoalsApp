@@ -1,10 +1,10 @@
-import { Footer, HeaderPage, MainHome } from "../components"
+import { Footer, Header, MainHome } from "../components"
 
 export const HomePage = () => {
 
     return (
         <>
-            <HeaderPage />
+            <Header />
             <MainHome children={' Test '}/>
             <Footer />
         </>
