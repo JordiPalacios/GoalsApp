@@ -1,5 +1,5 @@
 import { NavPage } from "./NavPage"
-import "./styles/index.js"
+import "../shared/styles/index.js"
 
 export const Header = () => {
     return (
