@@ -1,14 +1,13 @@
 import { NavbarMenu } from "../shared/NavbarMenu"
+import './mainHome.css'
 
 export const MainHome = ( {children} ) => {
     return (
-        <>
-            <aside>
-                <NavbarMenu />
-            </aside>
-            <main>
+        <div className="mainHomeContainer">
+            <NavbarMenu />
+            <main className="main">
                 {children}
             </main>
-        </>
+        </div>
     )
 }
