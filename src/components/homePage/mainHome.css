@@ -1,0 +1,40 @@
+.mainHomeContainer {
+    height: calc(100vh - theme('height.homeContentWindow'));
+
+    @apply 
+        flex
+        flex-row
+}
+
+.main {
+    @apply 
+        h-full
+        w-full
+        overflow-auto
+}
+
+.aside {
+    @apply 
+        flex
+        flex-col
+        items-start
+        justify-start
+        text-gray-700
+        bg-gray-100
+        shadow
+        w-60
+        h-full
+}
+
+.link {
+    @apply 
+        flex
+        flex-row
+        items-center
+        justify-start
+        w-full
+        px-4
+        py-2
+        gap-2
+        hover:bg-gray-200
+}
