@@ -12,7 +12,7 @@ export const Header = () => {
                 <NavPage 
                     navigateTo={'/users-page'} 
                     content={ 
-                        <img src="public/icons/user.svg" alt="userLogIn" className="h-6 w-6"/> 
+                        <img src="public/icons/user.svg" alt="userLogIn" className="icon"/> 
                     }
                 />      
             </nav>
