@@ -11,7 +11,7 @@ export default {
         md: '16px',
         lg: '24px',
         xl: '48px',
-        homeContentWindow: '64px',
+        homeContentWindow: '66px',
       },
     },
   },
