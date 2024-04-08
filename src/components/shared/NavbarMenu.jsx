@@ -13,7 +13,7 @@ export const NavbarMenu = () => {
                 } 
             />
             <NavPage 
-            navigateTo={'/'} 
+            navigateTo={'/create-goal'} 
             content={
                 <a>
                     <img src="public/icons/plus.svg" alt="Plus" className="icon"/>
