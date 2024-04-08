@@ -18,12 +18,33 @@
         flex
         flex-col
         items-start
-        justify-start
+        justify-between
         text-gray-700
         bg-gray-100
         shadow
         w-60
         h-full
+}
+
+.rrssContainer {
+    @apply 
+        flex
+        flex-col
+        items-start
+        justify-start
+        w-full
+        h-xl
+        my-2
+}
+
+.rrssContent {
+    @apply 
+        flex
+        flex-row
+        items-start
+        justify-start
+        w-full
+        hover:bg-gray-200
 }
 
 .link {
