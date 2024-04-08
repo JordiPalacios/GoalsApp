@@ -9,7 +9,7 @@ export const NavbarMenu = () => {
             content={
                 <>
                     <img src="public/icons/list.svg" alt="List" className={styles.icon}/>
-                    <span> Goals List </span>
+                    <span className={styles.text}> Goals List </span>
                 </>
                 } 
             />
@@ -18,7 +18,7 @@ export const NavbarMenu = () => {
             content={
                 <>
                     <img src="public/icons/plus.svg" alt="Plus" className={styles.icon}/>
-                    <span> Create Goal </span>
+                    <span className={styles.text}> Create Goal </span>
                 </>
                 } 
             />
