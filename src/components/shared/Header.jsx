@@ -9,7 +9,7 @@ export const Header = () => {
                 <img src="public/icons/rocket.svg" alt="rocket" className={styles.logo}/>
                 <a href="/" className={styles.title}> Goals App </a>
             </div>
-            <nav className={styles.userContent}>         
+            <nav>         
                 <NavPage 
                     navigateTo={'/users-page'} 
                     content={ 
