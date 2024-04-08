@@ -1,24 +1,25 @@
 import { NavPage } from "./NavPage"
+import styles from '../homePage/mainHome.module.css'
 
 export const NavbarMenu = () => {
     return (
-        <aside className="aside">
+        <aside className={styles.aside}>
             <NavPage 
             navigateTo={'/'} 
             content={
-                <a>
-                    <img src="public/icons/list.svg" alt="List" className="icon"/>
+                <>
+                    <img src="public/icons/list.svg" alt="List" className={styles.icon}/>
                     <span> Goals List </span>
-                </a>
+                </>
                 } 
             />
             <NavPage 
             navigateTo={'/create-goal'} 
             content={
-                <a>
-                    <img src="public/icons/plus.svg" alt="Plus" className="icon"/>
+                <>
+                    <img src="public/icons/plus.svg" alt="Plus" className={styles.icon}/>
                     <span> Create Goal </span>
-                </a>
+                </>
                 } 
             />
         </aside>
