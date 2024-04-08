@@ -1,18 +1,19 @@
 import { NavPage } from "./NavPage"
 import "../shared/styles/index.js"
+import styles from './styles/header.module.css'
 
 export const Header = () => {
     return (
-        <header className="headerContainer">
-            <div className="logoContent">
-                <img src="public/icons/rocket.svg" alt="rocket" className=" mr-2 h-10 w-10"/>
-                <a href="/" className="title"> Goals App </a>
+        <header className={styles.headerContainer}>
+            <div className={styles.logoContent}>
+                <img src="public/icons/rocket.svg" alt="rocket" className={styles.logo}/>
+                <a href="/" className={styles.title}> Goals App </a>
             </div>
-            <nav className="userContent">         
+            <nav className={styles.userContent}>         
                 <NavPage 
                     navigateTo={'/users-page'} 
                     content={ 
-                        <img src="public/icons/user.svg" alt="userLogIn" className="icon"/> 
+                        <img src="public/icons/user.svg" alt="userLogIn" className={styles.icon}/> 
                     }
                 />      
             </nav>
