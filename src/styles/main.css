@@ -1,0 +1,40 @@
+.card {
+    @apply
+        rounded-xl
+        m-4
+        text-gray-700 
+        text-xs
+        mx-4
+        nm-flat-white
+}
+
+.button {
+    @apply 
+        text-sm
+        font-bold
+        py-1
+        px-4
+        rounded-full
+}
+
+.button--black {
+    @apply
+        text-white
+        nm-flat-gray-700
+        hover:bg-gray-800
+}
+
+.button--red {
+    @apply
+        text-red-500
+        nm-flat-red-100
+        border-gray-200
+        hover:bg-red-300
+}
+
+.button--gray {
+    @apply    
+        nm-flat-gray-100
+        hover:bg-gray-200
+
+}
