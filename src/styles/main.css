@@ -38,3 +38,31 @@
         hover:bg-gray-200
 
 }
+
+.label {
+    @apply
+        block
+        uppercase
+        text-xs
+        font-bold
+        mb-6
+}
+
+.input {
+    @apply
+        nm-inset-gray-100
+        w-full
+        border
+        rounded-xl
+}
+
+.inputIcon {
+    @apply
+        flex
+        items-center
+        justify-center
+        h-10
+        w-10
+        nm-inset-gray-100
+        rounded-full
+}
