@@ -1,7 +1,11 @@
+import {Header, Footer, MainHome} from "../components"
+
 export const CreateGoal = () => {
     return (
         <>
-            <h1>Página: Crear Meta</h1>
+            <Header />
+                <MainHome />
+            <Footer />
         </>
     )
 }
