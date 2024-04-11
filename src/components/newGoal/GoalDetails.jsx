@@ -27,15 +27,16 @@ export const GoalDetails = () => {
                     Describe your goal
                     <input 
                     type="text" 
-                    placeholder="e.g Run 5km'"  
+                    placeholder="e.g Eat healthy for 6 days"  
                     className="input"/>
                 </label>
                 <label htmlFor="frecuencyGoal" className="label">
-                    How often do you want to achive your goal? <span> e.g Once a week  </span>
+                    How often do you want to achive your goal?
                     <div className="flex mb-6">                        
                         <input 
                         type="number"  
-                        className="input mr-6" />
+                        className="input mr-6"
+                        placeholder="e.g 1" />
                         <select name="frecuency" id="frecuency" className="input">
                             {frecuencyGoal.map((frecuency,index) => 
                                 <option key={index} value={frecuency}>
@@ -47,7 +48,7 @@ export const GoalDetails = () => {
                 </label>
                 <label htmlFor="timesGoalToComplete" className="label">
                     How many times do you want to complete your goal?
-                    <input type="number" placeholder="e.g 33" className="input" />
+                    <input type="number" placeholder="e.g 25" className="input" />
                 </label>
                 <label htmlFor="deadline" className="label">
                     Do you have a deadline?
@@ -55,7 +56,7 @@ export const GoalDetails = () => {
                 </label>
                 <label htmlFor="timesGoalCompleted" className="label">
                     How many times have you completed your goal?
-                    <input type="number" placeholder="e.g 2" className="input" />
+                    <input type="number" placeholder="e.g 0" className="input" />
                 </label>
                 <label htmlFor="goalIcon" className="label">
                     Choose an icon for your goal
