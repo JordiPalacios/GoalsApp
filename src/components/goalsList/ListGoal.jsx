@@ -8,6 +8,7 @@ const listMock = [{
     "icon": "public/icons/gym.svg",
     "iconAlt": "gymSVG",
     "goal": 7,
+    "goalName": "Gym",
     "deadline": "2025-12-31",
     "timesCompleted": 5,
 },
@@ -19,6 +20,7 @@ const listMock = [{
     "icon": "public/icons/apple.svg",
     "iconAlt": "appleSVG",
     "goal": 6,
+    "goalName": "Health",
     "deadline": "2025-12-31",
     "timesCompleted": 5,
 },
@@ -30,6 +32,7 @@ const listMock = [{
     "icon": "public/icons/book.svg",
     "iconAlt": "bookVG",
     "goal": 7,
+    "goalName": "Reading",
     "deadline": "2025-12-31",
     "timesCompleted": 4,
 },
@@ -41,6 +44,7 @@ const listMock = [{
     "icon": "public/icons/calendar.svg",
     "iconAlt": "calendarSVG",
     "goal": 1,
+    "goalName": "Productivity",
     "deadline": "2025-12-31",
     "timesCompleted": 0,
 },
@@ -52,6 +56,7 @@ const listMock = [{
     "icon": "public/icons/codePractice.svg",
     "iconAlt": "codePracticeSVG",
     "goal": 7,
+    "goalName": "Coding",
     "deadline": "2025-12-31",
     "timesCompleted": 1,
 },
@@ -63,6 +68,7 @@ const listMock = [{
     "icon": "public/icons/headset.svg",
     "iconAlt": "headsetSVG",
     "goal": 15,
+    "goalName": "Podcast",
     "deadline": "2025-12-31",
     "timesCompleted": 2,
 },
@@ -74,6 +80,7 @@ const listMock = [{
     "icon": "public/icons/running.svg",
     "iconAlt": "runningVG",
     "goal": 7,
+    "goalName": "Running",
     "deadline": "2025-12-31",
     "timesCompleted": 5,
 },
@@ -85,6 +92,7 @@ const listMock = [{
     "icon": "public/icons/swimming.svg",
     "iconAlt": "swimmingVG",
     "goal": 325,
+    "goalName": "Swimming",
     "deadline": "2025-12-31",
     "timesCompleted": 201,
 },
@@ -96,6 +104,7 @@ const listMock = [{
     "icon": "public/icons/walking.svg",
     "iconAlt": "walkingVG",
     "goal": 31,
+    "goalName": "Walking",
     "deadline": "2025-12-31",
     "timesCompleted": 31,
 },
@@ -107,11 +116,13 @@ const listMock = [{
     "icon": "public/icons/yoga.svg",
     "iconAlt": "yogaVG",
     "goal": 7,
+    "goalName": "Yoga",
     "deadline": "2025-12-31",
     "timesCompleted": 2,
 }]
 
 export const ListGoal = () => {
+
     return (
         listMock.map( goal => <SingleGoal key={goal.id} {...goal} />)
     )
