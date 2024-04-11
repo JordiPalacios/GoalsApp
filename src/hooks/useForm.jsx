@@ -5,7 +5,7 @@ export const useForm = () => {
         details: "e.g Eat healthy for 6 days",
         period: "week",
         events: 0,
-        icon: "public/icons/apple.svg",
+        icon: "",
         iconAlt: "appleSVG",
         goal: 7,
         goalName: "Health",

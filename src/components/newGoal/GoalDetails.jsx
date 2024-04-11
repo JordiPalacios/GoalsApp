@@ -7,17 +7,21 @@ export const GoalDetails = () => {
     const { form, setForm } = useForm()
     const { details, period, events, icon, iconAlt, goal, goalName, deadline, timesCompleted } = form
     const frecuencyGoal = useFrecuency()
-
     const [selectedIcon, setSelectedIcon] = useState(iconSVG[0])
-    const handleChangeIcon = (e) => {
-        setSelectedIcon(e.target.value)
-    }
-    const handleChange = (event, prop) => {
-        setForm(e => ({
-            ...e,
-            [prop]: event.target.value
+
+    const handleChange = (event) => {
+        const { name, value } = event.target
+
+        setForm(currentForm => ({
+            ...currentForm,
+            [name]: value
         }))
+
+        if (name === "goalIcon") {
+            setSelectedIcon(value)
+        }
     }
+
     const handleCreate = () => {
     }
 
@@ -47,11 +51,13 @@ export const GoalDetails = () => {
                         <input
                         type="number"
                         value={events}
+                        onChange={event => handleChange(event, "events")}
                         className="input mr-6" />
                         <select
                         name="frecuency"
                         id="frecuency"
                         value={period}
+                        onChange={event => handleChange(event, "period")}
                         className="input">
                             {frecuencyGoal.map((frecuency,index) =>
                                 <option key={index} value={frecuency}>
@@ -63,23 +69,29 @@ export const GoalDetails = () => {
                 </label>
                 <label htmlFor="timesGoalToComplete" className="label">
                     How many times do you want to complete your goal?
-                    <input type="number" value={goal} className="input" />
+                    <input type="number" value={goal} onChange={event => handleChange(event, "goal")} className="input" />
                 </label>
                 <label htmlFor="deadline" className="label">
                     Do you have a deadline?
-                    <input type="date" value={deadline}  className="input" />
+                    <input type="date" value={deadline} onChange={event => handleChange(event, "deadline")} className="input" />
                 </label>
                 <label htmlFor="timesGoalCompleted" className="label">
                     How many times have you completed your goal?
-                    <input type="number" value={timesCompleted} className="input" />
+                    <input type="number" value={timesCompleted} onChange={event => handleChange(event, "timesCompleted")} className="input" />
                 </label>
                 <label htmlFor="goalIcon" className="label">
                     Choose an icon for your goal
-                    <select name="goalIcon" id="icon" onChange={handleChangeIcon} value={icon} className="input mb-2">
+                    <select 
+                        name="goalIcon" 
+                        id="icon" 
+                        value={form.goalIcon} 
+                        onChange={handleChange} 
+                        className="input mb-2">
                         {iconSVG.map((icon, index) =>
                             <option key={index} value={icon}>
                                 {icon.split('/').pop().split('.')[0].toUpperCase()}
-                            </option>)}
+                            </option>
+                        )}
                     </select>
                     <div className="inputIcon">
                         <img src={selectedIcon} alt="icon"/>
