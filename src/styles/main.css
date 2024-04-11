@@ -6,6 +6,7 @@
         text-xs
         mx-4
         nm-flat-white
+        overflow-hidden
 }
 
 .button {
@@ -54,6 +55,7 @@
         w-full
         border
         rounded-xl
+        p-2
 }
 
 .inputIcon {

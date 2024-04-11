@@ -22,15 +22,20 @@ export const GoalDetails = () => {
 
     return (
         <div className="card">
-            <form>
+            <form className="p-4">
                 <label htmlFor="goalDecription" className="label">
                     Describe your goal
-                    <input type="text" placeholder="e.g Run 5km'"  className="input"/>
+                    <input 
+                    type="text" 
+                    placeholder="e.g Run 5km'"  
+                    className="input"/>
                 </label>
                 <label htmlFor="frecuencyGoal" className="label">
                     How often do you want to achive your goal? <span> e.g Once a week  </span>
-                    <div>                        
-                        <input type="number"  className="input" />
+                    <div className="flex mb-6">                        
+                        <input 
+                        type="number"  
+                        className="input mr-6" />
                         <select name="frecuency" id="frecuency" className="input">
                             {frecuencyGoal.map((frecuency,index) => 
                                 <option key={index} value={frecuency}>
@@ -54,21 +59,19 @@ export const GoalDetails = () => {
                 </label>
                 <label htmlFor="goalIcon" className="label">
                     Choose an icon for your goal
-                    <div className="flex">
-                        <select name="goalIcon" id="icon" onChange={handleChangeIcon} className="input">
-                            {iconGoal.map((icon, index) => 
-                                <option key={index} value={icon}>
-                                    {icon.split('/').pop().split('.')[0].toUpperCase()}
-                                </option>)}
-                        </select>
-                    </div>
+                    <select name="goalIcon" id="icon" onChange={handleChangeIcon} className="input mb-2">
+                        {iconGoal.map((icon, index) => 
+                            <option key={index} value={icon}>
+                                {icon.split('/').pop().split('.')[0].toUpperCase()}
+                            </option>)}
+                    </select>
                     <div className="inputIcon">
-                    <img src={selectedIcon} alt="icon"/>
+                        <img src={selectedIcon} alt="icon"/>
                     </div>
                 </label>
 
             </form>
-            <div>
+            <div className={styles.buttons}>
                 <button className="button button--black">Create</button>
                 <button className="button button--gray">Cancel</button>
             </div>
