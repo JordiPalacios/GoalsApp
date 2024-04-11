@@ -1,13 +1,17 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import styles from './newGoal.module.css'
 import { useForm, useFrecuency } from "../../hooks"
 import iconSVG  from "../../assets/iconsSVG.json"
+import { GoalContext } from "../../context/GoalContext"
+
 
 export const GoalDetails = () => {
     const { form, setForm } = useForm()
-    const { details, period, events, icon, iconAlt, goal, goalName, deadline, timesCompleted } = form
+    const [ state, dispatch ] = useContext(GoalContext)
     const frecuencyGoal = useFrecuency()
     const [selectedIcon, setSelectedIcon] = useState(iconSVG[0])
+
+    const { details, period, events, icon, iconAlt, goal, goalName, deadline, timesCompleted } = form
 
     const handleChange = (event) => {
         const { name, value } = event.target
@@ -22,15 +26,15 @@ export const GoalDetails = () => {
         }
     }
 
-    const handleCreate = () => {
+    const handleCreate = async () => {
+        dispatch({ type: 'addNewGoal', goal: form })
     }
 
-    const handleCancel = () => {
+    const handleCancel = async () => {
     }
-
+    
     useEffect(() => {
         //* Para enviar info al backend una vez que se haya completado el formulario
-        console.log(form)
     }, [form])
 
     return (
@@ -39,6 +43,7 @@ export const GoalDetails = () => {
                 <label htmlFor="goalDecription" className="label">
                     Describe your goal
                     <input
+                    name="details"
                     type="text"
                     placeholder="e.g Eat healthy for 6 days"
                     value={details}
@@ -49,12 +54,13 @@ export const GoalDetails = () => {
                     How often do you want to achive your goal?
                     <div className="flex mb-6">
                         <input
+                        name="events"
                         type="number"
                         value={events}
                         onChange={event => handleChange(event, "events")}
                         className="input mr-6" />
                         <select
-                        name="frecuency"
+                        name="period"
                         id="frecuency"
                         value={period}
                         onChange={event => handleChange(event, "period")}
@@ -69,15 +75,15 @@ export const GoalDetails = () => {
                 </label>
                 <label htmlFor="timesGoalToComplete" className="label">
                     How many times do you want to complete your goal?
-                    <input type="number" value={goal} onChange={event => handleChange(event, "goal")} className="input" />
+                    <input name="goal" type="number" value={goal} onChange={event => handleChange(event, "goal")} className="input" />
                 </label>
                 <label htmlFor="deadline" className="label">
                     Do you have a deadline?
-                    <input type="date" value={deadline} onChange={event => handleChange(event, "deadline")} className="input" />
+                    <input name="deadline" type="date" value={deadline} onChange={event => handleChange(event, "deadline")} className="input" />
                 </label>
                 <label htmlFor="timesGoalCompleted" className="label">
                     How many times have you completed your goal?
-                    <input type="number" value={timesCompleted} onChange={event => handleChange(event, "timesCompleted")} className="input" />
+                    <input name="timesCompleted" type="number" value={timesCompleted} onChange={event => handleChange(event, "timesCompleted")} className="input" />
                 </label>
                 <label htmlFor="goalIcon" className="label">
                     Choose an icon for your goal
