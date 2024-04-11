@@ -1,6 +1,10 @@
 import styles from './singleGoal.module.css'
 
-export const SingleGoal = ({ details, period, events, icon, iconAlt, goal, timesCompleted }) => {
+export const SingleGoal = ({ details, period, events, icon, iconAlt, goal, goalName, timesCompleted }) => {
+
+    const handleComepleteGoal = () => {
+        console.log('Goal completed:', goalName)
+    }
 
     return (
         <div className={styles.goalContainer + " card"}>
@@ -25,7 +29,9 @@ export const SingleGoal = ({ details, period, events, icon, iconAlt, goal, times
                         </div>
                     </div>
                 </div>
-                <button className='button button--gray'>Completed</button>
+                <button 
+                onClick={handleComepleteGoal}
+                className='button button--gray'>Completed</button>
             </div>
         </div>
     )
