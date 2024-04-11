@@ -2,12 +2,12 @@ import { useState } from "react"
 
 export const useForm = () => {
     const [ form, setForm ] = useState({
-        details: "e.g Eat healthy for 6 days",
+        details: "",
         period: "week",
         events: 0,
         icon: "",
         iconAlt: "appleSVG",
-        goal: 7,
+        goal: 0,
         goalName: "Health",
         deadline: "2025-12-31",
         timesCompleted: 0
