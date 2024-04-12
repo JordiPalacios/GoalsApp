@@ -15,8 +15,6 @@ export const GoalDetails = () => {
 
     const handleChange = (event) => {
         const { name, value } = event.target
-        console.log('Name: ', name)
-        console.log('Value: ', value)
 
         if (name === "icon") {
             setSelectedIcon(value)
@@ -31,6 +29,7 @@ export const GoalDetails = () => {
     const handleCreate = async () => {
         dispatch({ type: 'addNewGoal', goal: form })
         console.log('Formulario: ', form)
+        console.log('Form Icon: ', form.icon)
     }
 
     const handleCancel = async () => {
@@ -93,7 +92,7 @@ export const GoalDetails = () => {
                     <select 
                         name="icon" 
                         id="icon" 
-                        value={form.icon} 
+                        value={ form.icon } 
                         onChange={handleChange} 
                         className="input mb-2">
                         {iconSVG.map((icon, index) =>
