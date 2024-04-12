@@ -15,19 +15,22 @@ export const GoalDetails = () => {
 
     const handleChange = (event) => {
         const { name, value } = event.target
+        console.log('Name: ', name)
+        console.log('Value: ', value)
+
+        if (name === "icon") {
+            setSelectedIcon(value)
+        }
 
         setForm(currentForm => ({
             ...currentForm,
             [name]: value
         }))
-
-        if (name === "goalIcon") {
-            setSelectedIcon(value)
-        }
     }
 
     const handleCreate = async () => {
         dispatch({ type: 'addNewGoal', goal: form })
+        console.log('Formulario: ', form)
     }
 
     const handleCancel = async () => {
@@ -85,12 +88,12 @@ export const GoalDetails = () => {
                     How many times have you completed your goal?
                     <input name="timesCompleted" type="number" value={timesCompleted} onChange={event => handleChange(event, "timesCompleted")} className="input" />
                 </label>
-                <label htmlFor="goalIcon" className="label">
+                <label htmlFor="icon" className="label">
                     Choose an icon for your goal
                     <select 
-                        name="goalIcon" 
+                        name="icon" 
                         id="icon" 
-                        value={form.goalIcon} 
+                        value={form.icon} 
                         onChange={handleChange} 
                         className="input mb-2">
                         {iconSVG.map((icon, index) =>
@@ -100,7 +103,9 @@ export const GoalDetails = () => {
                         )}
                     </select>
                     <div className="inputIcon">
-                        <img src={selectedIcon} alt="icon"/>
+                        <img 
+                            src={selectedIcon} 
+                            alt={selectedIcon.split('/').pop().split('.')[0]}/>
                     </div>
                 </label>
             </form>
