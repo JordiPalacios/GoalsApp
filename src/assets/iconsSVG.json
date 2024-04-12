@@ -1,12 +1,12 @@
 [
-    "public/icons/apple.svg",
-    "public/icons/book.svg",
-    "public/icons/codePractice.svg",
-    "public/icons/gym.svg",
-    "public/icons/headset.svg",
-    "public/icons/list.svg",
-    "public/icons/running.svg",
-    "public/icons/swimming.svg",
-    "public/icons/walking.svg",
-    "public/icons/yoga.svg"
+    "/public/icons/apple.svg",
+    "/public/icons/book.svg",
+    "/public/icons/codePractice.svg",
+    "/public/icons/gym.svg",
+    "/public/icons/headset.svg",
+    "/public/icons/list.svg",
+    "/public/icons/running.svg",
+    "/public/icons/swimming.svg",
+    "/public/icons/walking.svg",
+    "/public/icons/yoga.svg"
 ]

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import styles from './newGoal.module.css'
 import { useForm, useFrecuency } from "../../hooks"
-import iconSVG  from "../../assets/iconsSVG.json"
+import iconSVG  from "/src/assets/iconsSVG.json"
 import { GoalContext } from "../../context/GoalContext"
 import { useNavigate } from "react-router"
 
@@ -14,6 +14,8 @@ export const GoalDetails = () => {
     const [selectedIcon, setSelectedIcon] = useState(iconSVG[0])
 
     const { details, period, events, icon, iconAlt, goal, goalName, deadline, timesCompleted } = form
+
+    console.log('Selected Icon: ', selectedIcon)
 
     const handleChange = (event) => {
         const { name, value } = event.target
