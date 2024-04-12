@@ -1,4 +1,4 @@
-export * from './updateGoal/UpdateGoal'
+export * from './popUp/PopUp'
 export * from './goalsList/SingleGoal'
 export * from './shared/NavbarMenu'
 export * from './shared/NavPage'
