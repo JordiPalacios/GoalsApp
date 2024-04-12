@@ -1,13 +1,14 @@
+import { Link } from 'react-router-dom'
 import styles from './singleGoal.module.css'
 
-export const SingleGoal = ({ details, period, events, icon, iconAlt, goal, goalName, timesCompleted }) => {
+export const SingleGoal = ({ id, details, period, events, icon, iconAlt, goal, goalName, timesCompleted }) => {
 
     const handleComepleteGoal = () => {
         console.log('Goal completed:', goalName)
     }
 
     return (
-        <div className={styles.goalContainer + " card"}>
+        <Link to={`/goal/${id}`} className={styles.goalContainer + " card"}>
             <div className='flex items-center'>
                 <div className={styles.icon}>
                     <img src={icon} alt={iconAlt} />
@@ -33,6 +34,6 @@ export const SingleGoal = ({ details, period, events, icon, iconAlt, goal, goalN
                 onClick={handleComepleteGoal}
                 className='button button--gray'>Completed</button>
             </div>
-        </div>
+        </Link>
     )
 }

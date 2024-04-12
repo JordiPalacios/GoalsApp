@@ -34,6 +34,7 @@ export const GoalDetails = () => {
     }
 
     const handleCancel = async () => {
+        navigate('/')
     }
     
     useEffect(() => {
