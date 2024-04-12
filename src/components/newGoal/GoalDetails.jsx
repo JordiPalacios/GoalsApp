@@ -3,9 +3,11 @@ import styles from './newGoal.module.css'
 import { useForm, useFrecuency } from "../../hooks"
 import iconSVG  from "../../assets/iconsSVG.json"
 import { GoalContext } from "../../context/GoalContext"
+import { useNavigate } from "react-router"
 
 
 export const GoalDetails = () => {
+    const navigate = useNavigate()
     const { form, setForm } = useForm()
     const [ state, dispatch ] = useContext(GoalContext)
     const frecuencyGoal = useFrecuency()
@@ -28,8 +30,7 @@ export const GoalDetails = () => {
 
     const handleCreate = async () => {
         dispatch({ type: 'addNewGoal', goal: form })
-        console.log('Formulario: ', form)
-        console.log('Form Icon: ', form.icon)
+        navigate('/')
     }
 
     const handleCancel = async () => {
