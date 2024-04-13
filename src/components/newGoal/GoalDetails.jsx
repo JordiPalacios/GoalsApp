@@ -3,10 +3,11 @@ import styles from './newGoal.module.css'
 import { useForm, useFrecuency } from "../../hooks"
 import iconSVG  from "/src/assets/iconsSVG.json"
 import { GoalContext } from "../../context/GoalContext"
-import { useNavigate } from "react-router"
+import { useNavigate, useParams } from "react-router"
 
 
 export const GoalDetails = () => {
+    const { id } = useParams()
     const navigate = useNavigate()
     const { form, setForm } = useForm()
     const [ state, dispatch ] = useContext(GoalContext)
