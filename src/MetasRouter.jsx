@@ -2,12 +2,17 @@ import React from "react"
 import { Routes, Route } from "react-router-dom"
 import { CreateGoal, HomePage, UsersPage } from "./pages"
 import { PopUp } from "./components"
+import { GoalDetails } from "./components/newGoal/GoalDetails"
 
 export const MetasRouter = () => {
     return (
         <Routes>
             <Route path="/" element={<HomePage />}>
-                <Route path="/goal/:id" element={<PopUp />} />
+                <Route path="/goal/:id" element={
+                    <PopUp>
+                        <GoalDetails />
+                    </PopUp>
+                } />
             </Route>
             <Route index element={<HomePage />} />
             <Route path="/create-goal" element={<CreateGoal />} />
