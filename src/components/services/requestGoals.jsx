@@ -33,5 +33,5 @@ export const deleteGoal = async () => {
     const goalRemoved = await res.json()
     console.log('Goal Removed: ', goalRemoved.id)
 
-    return goalRemoved
+    return goalRemoved.id
 }
