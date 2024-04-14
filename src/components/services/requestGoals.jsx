@@ -15,7 +15,6 @@ export const requestGoal = async () => {
 export const createGoal = async () => {
     const res = await fetch("/src/assets/goal.json")
     const  goalCreated = await res.json()
-    console.log('Goal Created: ', goalCreated)
 
     return goalCreated
 }
@@ -23,7 +22,6 @@ export const createGoal = async () => {
 export const updateGoal = async () => {
     const res = await fetch("/src/assets/goal.json")
     const goalUpdated = await res.json()
-    console.log('Goal Updated: ', goalUpdated)
 
     return goalUpdated
 }
@@ -31,7 +29,6 @@ export const updateGoal = async () => {
 export const deleteGoal = async () => {
     const res = await fetch("/src/assets/goal.json")
     const goalRemoved = await res.json()
-    console.log('Goal Removed: ', goalRemoved.id)
 
     return goalRemoved.id
 }
