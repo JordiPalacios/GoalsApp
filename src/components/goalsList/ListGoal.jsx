@@ -4,7 +4,7 @@ import { GoalContext } from "../../context/GoalContext"
 import { Outlet } from "react-router"
 
 export const ListGoal = () => {
-    const [ state, dispatch ] = useContext(GoalContext)
+    const [ state ] = useContext(GoalContext)
 
     return (
         <>
