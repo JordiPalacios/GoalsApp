@@ -4,6 +4,7 @@ import { useForm, useFrecuency } from "../../hooks"
 import iconSVG  from "/src/assets/iconsSVG.json"
 import { GoalContext } from "../../context/GoalContext"
 import { useNavigate, useParams } from "react-router"
+import { createGoal, deleteGoal, updateGoal } from "../services/requestGoals"
 
 
 export const GoalDetails = () => {
@@ -28,18 +29,21 @@ export const GoalDetails = () => {
         }))
     }
 
-    const handleCreate = () => {
-        dispatch({ type: 'addNewGoal', goal: form })
+    const handleCreate = async () => {
+        const goalCreated = await createGoal()
+        dispatch({ type: 'addNewGoal', goal: goalCreated })
         navigate('/')
     }
 
-    const handleUpdate = () => {
-        dispatch({ type: 'updateGoal', goal: form })
+    const handleUpdate = async () => {
+        const goalUpdated = await updateGoal()
+        dispatch({ type: 'updateGoal', goal: goalUpdated })
         navigate('/')
     }
 
-    const handleDelete = () => {
-        dispatch({ type: 'deleteGoal', id})
+    const handleDelete = async () => {
+        const idGoalDeleted = await deleteGoal()
+        dispatch({ type: 'deleteGoal', id: idGoalDeleted})
         navigate('/')
     }
 
