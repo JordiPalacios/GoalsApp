@@ -1,0 +1,38 @@
+[
+    {
+        "id": "1",
+        "details": "Run 5 km",
+        "period": "week",
+        "events": 10,
+        "icon": "public/icons/running.svg",
+        "iconAlt": "RunningSVG",
+        "goal": 10,
+        "goalName": "Running",
+        "deadline": "2025-12-31",
+        "timesCompleted": 3
+    },
+    {
+        "id": "2",
+        "details": "Swim 2000m",
+        "period": "month",
+        "events": 25,
+        "icon": "public/icons/swimming.svg",
+        "iconAlt": "SwimmingSVG",
+        "goal": 25,
+        "goalName": "Swimming",
+        "deadline": "2025-12-31",
+        "timesCompleted": 10
+    },
+    {
+        "id": "3",
+        "details": "Walk 10 km",
+        "period": "month",
+        "events": 25,
+        "icon": "public/icons/walking.svg",
+        "iconAlt": "WalkingSVG",
+        "goal": 25,
+        "goalName": "Walking",
+        "deadline": "2025-12-31",
+        "timesCompleted": 10
+    }
+]

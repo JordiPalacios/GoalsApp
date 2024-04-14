@@ -1,0 +1,12 @@
+{
+    "id": "2",
+    "details": "Backend",
+    "period": "week",
+    "events": 10,
+    "icon": "public/icons/yoga.svg",
+    "iconAlt": "RunningSVG",
+    "goal": 10,
+    "goalName": "Running",
+    "deadline": "2025-12-31",
+    "timesCompleted": 3
+}
