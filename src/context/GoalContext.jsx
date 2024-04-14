@@ -1,93 +1,88 @@
 import { createContext, useReducer } from "react";
 
-const listMock = [{
-    "id": 1,
-    "details": "Do muscle training",
-    "period": "week",
-    "events": 5,
-    "icon": "/public/icons/gym.svg",
-    "iconAlt": "gymSVG",
-    "goal": 7,
-    "goalName": "Gym",
-    "deadline": "2025-12-31",
-    "timesCompleted": 5,
-},
-{
-    "id": 2,
-    "details": "Eat healthy for 6 days",
-    "period": "week",
-    "events": 5,
-    "icon": "/public/icons/apple.svg",
-    "iconAlt": "appleSVG",
-    "goal": 6,
-    "goalName": "Health",
-    "deadline": "2025-12-31",
-    "timesCompleted": 5,
-},
-{
-    "id": 3,
-    "details": "Read 5 pages daily",
-    "period": "week",
-    "events": 4,
-    "icon": "/public/icons/book.svg",
-    "iconAlt": "bookVG",
-    "goal": 7,
-    "goalName": "Reading",
-    "deadline": "2025-12-31",
-    "timesCompleted": 4,
-}]
-
-const initialState = {
+const memory = localStorage.getItem('goals')
+const initialState = memory 
+    ? JSON.parse(memory) 
+    : {
     order: [],
     objects: {}
-}
+    }
 
-const Reducer = ( state, action ) => {
+const reducer = ( state, action ) => {
     switch ( action.type ) {
         case 'addGoal': {
             const goals = action.goals
             const newState = {
-                order: goals.map(goal => goal.id),
-                objects: goals.reduce((object, goal) => ({ ...object, [goal.id]: goal }), {})
+                order: goals.map((goal) => goal.id),
+                objects: goals.reduce(
+                    (object, goal) => ({ ...object, [goal.id]: goal }), 
+                    {}
+                ),
             }
+
+            localStorage.setItem('goals', JSON.stringify(newState))
             return newState
 
         }
         case 'addNewGoal' : {
-            const id = Math.random()
+            const id = String(Math.floor(Math.random()*101))
+
             const newState = {
                 order: [...state.order, id],
                 objects: {
                     ...state.objects,
-                    [id]: action.goal
-                }
+                    [id]: {id, ...action.goal},
+                },
             }
-            return newState
-        }
 
-        case 'removeGoal' : {
-
+            localStorage.setItem('goals', JSON.stringify(newState))
             return newState
         }
         case 'updateGoal' : {
+            //* Obtenemos el id de la meta
+            const id = action.goal.id
+            
+            //* Actualizamos la meta
+            state.objects[id] = {
+                //* Creamos una copia de la meta actual
+                ...state.objects[id],
+                //* Actualizamos la meta con la nueva informacion
+                ...action.goal,
+            }
+            const newState = { ...state }
+            
+            localStorage.setItem('goals', JSON.stringify(newState))            
+            return newState
+        }
+        case 'deleteGoal' : {
+            //* Obtenemos el id de la meta
+            const id = action.id
+            //* Actualizamos el orden porque al borrar una meta, el orden cambia
+            const newOrder = state.order.filter((orderId) => orderId != id)
+            //* Borramos la meta
+            delete state.objects[id]
+            //* Creamos un nuevo estado
+            const newState = {
+                order: newOrder,
+                objects: state.objects,
+            }
 
+            localStorage.setItem('goals', JSON.stringify(newState))
             return newState
         }
         default: {
-            return state
+            throw new Error(`Unhandled action type: ${action.type}`)
         }   
-
+        
     }
 }
-
-const goals = Reducer(initialState, { type: 'addGoal', goals: listMock })
 
 export const GoalContext = createContext(null)
 
 export const GoalMemory = ({ children }) => {
-    const [state, dispatch] = useReducer( Reducer, goals )
+    const value = useReducer( reducer, initialState )
     return (
-        <GoalContext.Provider value={[ state, dispatch ]}>
+        <GoalContext.Provider value={ value }>
             {children}
         </GoalContext.Provider>
     )

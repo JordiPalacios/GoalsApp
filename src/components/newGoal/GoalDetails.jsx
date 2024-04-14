@@ -16,11 +16,8 @@ export const GoalDetails = () => {
 
     const { details, period, events, icon, iconAlt, goal, goalName, deadline, timesCompleted } = form
 
-    console.log('Selected Icon: ', selectedIcon)
-
     const handleChange = (event) => {
         const { name, value } = event.target
-
         if (name === "icon") {
             setSelectedIcon(value)
         }
@@ -31,18 +28,41 @@ export const GoalDetails = () => {
         }))
     }
 
-    const handleCreate = async () => {
+    const handleCreate = () => {
         dispatch({ type: 'addNewGoal', goal: form })
         navigate('/')
     }
 
-    const handleCancel = async () => {
+    const handleUpdate = () => {
+        dispatch({ type: 'updateGoal', goal: form })
         navigate('/')
     }
-    
+
+    const handleDelete = () => {
+        dispatch({ type: 'deleteGoal', id})
+        navigate('/')
+    }
+
+    const handleCancel = () => {
+        navigate('/')
+    }
+
+    const goalMemory = state.objects[id]
     useEffect(() => {
-        //* Para enviar info al backend una vez que se haya completado el formulario
-    }, [form])
+        //* Si no tenemos id, retornamos. Gracias a esto podemos ir a la pagina de creacion de metas
+        //* Sino tendriamos un error debido a que no tenemos un id
+        if (!id) return
+
+        //* Si no tenemos la meta en memoria, retornamos a la pagina principal
+        if (!goalMemory) {
+            return navigate('/')
+        }
+
+        //* Seteamos el estado de la meta en el formulario
+        setForm(goalMemory)
+        setSelectedIcon(goalMemory.icon)
+
+    }, [id, goalMemory, navigate])
 
     return (
         <div className="card">
@@ -114,7 +134,15 @@ export const GoalDetails = () => {
                 </label>
             </form>
             <div className={styles.buttons}>
+                { !id && 
                 <button className="button button--black" onClick={handleCreate}>Create</button>
+                }
+                { id &&
+                    <>
+                        <button className="button button--black" onClick={handleUpdate}>Update</button>
+                        <button className="button button--red" onClick={handleDelete}>Delete</button>
+                    </>
+                }
                 <button className="button button--gray" onClick={handleCancel}>Cancel</button>
             </div>
         </div>
