@@ -15,7 +15,7 @@ export const GoalDetails = () => {
     const frecuencyGoal = useFrecuency()
     const [selectedIcon, setSelectedIcon] = useState(iconSVG[0])
 
-    const { details, period, events, icon, iconAlt, goal, goalName, deadline, timesCompleted } = form
+    const { details, period, events, goal, deadline, timesCompleted } = form
 
     const handleChange = (event) => {
         const { name, value } = event.target
@@ -55,7 +55,9 @@ export const GoalDetails = () => {
     useEffect(() => {
         //* Si no tenemos id, retornamos. Gracias a esto podemos ir a la pagina de creacion de metas
         //* Sino tendriamos un error debido a que no tenemos un id
-        if (!id) return
+        if (!id){
+            return
+        } 
 
         //* Si no tenemos la meta en memoria, retornamos a la pagina principal
         if (!goalMemory) {
@@ -64,7 +66,12 @@ export const GoalDetails = () => {
 
         //* Seteamos el estado de la meta en el formulario
         setForm(goalMemory)
-        setSelectedIcon(goalMemory.icon)
+        
+        //* Si no tenemos id ponemos por defecto el logo de la manzana.
+        //* Si tenemos id, ponemos el logo que tenemos en memoria
+        {!id 
+            ? setSelectedIcon(iconSVG[0]) 
+            : setSelectedIcon('/' + goalMemory.icon)}
 
     }, [id, goalMemory, navigate])
 

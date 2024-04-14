@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import styles from './singleGoal.module.css'
 
 export const SingleGoal = ({ id, details, period, events, icon, iconAlt, goal, goalName, timesCompleted }) => {
-
+    
     const handleComepleteGoal = () => {
         console.log('Goal completed:', goalName)
     }
