@@ -8,7 +8,9 @@ export const ListGoal = () => {
 
     return (
         <>
-            {state.order.map( id => <SingleGoal key={id} {...state.objects[id]} />)}
+            {state.order.map((id) => (
+                <SingleGoal key={id} {...state.objects[id]}></SingleGoal>
+            ))}
             <Outlet />
         </>
 
