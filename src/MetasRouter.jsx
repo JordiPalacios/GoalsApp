@@ -1,10 +1,22 @@
-import React from "react"
+import React, { useContext, useEffect } from "react"
 import { Routes, Route } from "react-router-dom"
 import { CreateGoal, HomePage, UsersPage } from "./pages"
-import { PopUp } from "./components"
+import { PopUp, requestGoals } from "./components"
 import { GoalDetails } from "./components/newGoal/GoalDetails"
+import { GoalContext } from "./context/GoalContext"
 
 export const MetasRouter = () => {
+    const [ ,dispatch ] = useContext(GoalContext)
+
+    useEffect(() => {
+        const fetchGoal = async () => {
+            const goals = await requestGoals()
+            dispatch({ type: 'setGoals', goals })
+        }
+        
+        fetchGoal()
+    }, [dispatch])
+
     return (
         <Routes>
             <Route path="/" element={<HomePage />}>
