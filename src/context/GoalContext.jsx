@@ -1,16 +1,22 @@
 import { createContext, useReducer } from "react";
 
-const memory = localStorage.getItem('goals')
-const initialState = memory 
-    ? JSON.parse(memory) 
-    : {
+//*  Ahora nuestra lista dependera del backend. Por lo que eliminamos el localStorage y lo reemplazamos por un fetch a la API.
+// const memory = localStorage.getItem('goals')
+// const initialState = memory 
+//     ? JSON.parse(memory) 
+//     : {
+//     order: [],
+//     objects: {}
+//     }
+
+const initialState = {
     order: [],
     objects: {}
-    }
+}
 
 const reducer = ( state, action ) => {
     switch ( action.type ) {
-        case 'addGoal': {
+        case 'setGoals': {
             const goals = action.goals
             const newState = {
                 order: goals.map((goal) => goal.id),
@@ -20,12 +26,13 @@ const reducer = ( state, action ) => {
                 ),
             }
 
-            localStorage.setItem('goals', JSON.stringify(newState))
+            // localStorage.setItem('goals', JSON.stringify(newState))
             return newState
 
         }
         case 'addNewGoal' : {
-            const id = String(Math.floor(Math.random()*101))
+            // const id = String(Math.floor(Math.random()*101))
+            const id = action.goal.id
 
             const newState = {
                 order: [...state.order, id],
@@ -35,7 +42,7 @@ const reducer = ( state, action ) => {
                 },
             }
 
-            localStorage.setItem('goals', JSON.stringify(newState))
+            // localStorage.setItem('goals', JSON.stringify(newState))
             return newState
         }
         case 'updateGoal' : {
@@ -51,7 +58,7 @@ const reducer = ( state, action ) => {
             }
             const newState = { ...state }
             
-            localStorage.setItem('goals', JSON.stringify(newState))            
+            // localStorage.setItem('goals', JSON.stringify(newState))            
             return newState
         }
         case 'deleteGoal' : {
@@ -67,7 +74,7 @@ const reducer = ( state, action ) => {
                 objects: state.objects,
             }
 
-            localStorage.setItem('goals', JSON.stringify(newState))
+            // localStorage.setItem('goals', JSON.stringify(newState))
             return newState
         }
         default: {
