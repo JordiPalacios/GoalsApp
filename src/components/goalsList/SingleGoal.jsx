@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom'
 import styles from './singleGoal.module.css'
 
-export const SingleGoal = ({ id, details, period, events, icon, iconAlt, goal, goalName, timesCompleted }) => {
+export const SingleGoal = ({ id, details, period, events, icon, iconAlt, goal, timesCompleted }) => {
     
-    const handleComepleteGoal = () => {
-        console.log('Goal completed:', goalName)
+    const handleComepleteGoal = (event) => {
+        event.preventDefault()
+        event.stopPropagation()
     }
 
     return (
