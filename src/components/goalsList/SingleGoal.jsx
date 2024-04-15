@@ -1,11 +1,24 @@
 import { Link } from 'react-router-dom'
 import styles from './singleGoal.module.css'
+import { useContext } from 'react'
+import { GoalContext } from '../../context/GoalContext'
 
 export const SingleGoal = ({ id, details, period, events, icon, iconAlt, goal, timesCompleted }) => {
+    const [,dispatch] = useContext(GoalContext)
     
     const handleComepleteGoal = (event) => {
         event.preventDefault()
         event.stopPropagation()
+
+        if (timesCompleted < goal) {
+            dispatch({ 
+                type: 'updateGoal',
+                goal: {
+                    id: id,
+                    timesCompleted: timesCompleted + 1
+                }
+            })
+        }
     }
 
     return (
