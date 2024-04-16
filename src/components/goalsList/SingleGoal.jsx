@@ -2,9 +2,12 @@ import { Link } from 'react-router-dom'
 import styles from './singleGoal.module.css'
 import { useContext } from 'react'
 import { GoalContext } from '../../context/GoalContext'
+import { useWorkingMode } from '../../hooks'
 
 export const SingleGoal = ({ id, details, period, events, icon, iconAlt, goal, timesCompleted }) => {
     const [,dispatch] = useContext(GoalContext)
+    const workingMode = useWorkingMode()
+    console.log('Working mode: ', workingMode)
     
     const handleComepleteGoal = (event) => {
         event.preventDefault()
@@ -23,7 +26,7 @@ export const SingleGoal = ({ id, details, period, events, icon, iconAlt, goal, t
 
     return (
         <Link to={`/goal/${id}`} className={styles.goalContainer + " card"}>
-            <div className='flex items-center'>
+            <div className= {workingMode === 'Mobile' ? 'flex flex-col items-center gap-2' : 'flex items-center' } >
                 <div className={styles.icon}>
                     <img src={icon} alt={iconAlt} />
                 </div>
@@ -35,7 +38,7 @@ export const SingleGoal = ({ id, details, period, events, icon, iconAlt, goal, t
                 </p>
                 <p> {details} </p>
             </div>
-            <div className='flex'>
+            <div className={workingMode === 'Mobile' ? 'flex flex-col items-center gap-2' : 'flex' } >
                 <div className='relative m-2 mx-5'>
                     <p className='text-center'> {timesCompleted} of {goal} </p>
                     <div className={styles.navbarContainer}>

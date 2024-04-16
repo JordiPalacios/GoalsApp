@@ -1,10 +1,15 @@
 import { NavPage } from "./NavPage"
 import { IconText } from "./IconText"
 import styles from '../homePage/mainHome.module.css'
+import { useContext } from "react"
+import { MenuContext } from "../../context/MenuContext"
 
 export const NavbarMenu = () => {
+
+    const [menuOpen] = useContext(MenuContext)
+
     return (
-        <aside className={styles.aside}>
+        <aside className={menuOpen ? `${styles.aside}` : 'hidden'}>
             <div className= "w-full">
                 <NavPage 
                 navigateTo={'/'} 

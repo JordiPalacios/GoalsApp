@@ -1,6 +1,8 @@
 .goalContainer {
     @apply
         flex
+        flex-col
+        items-center
         p-2
         justify-between
 }
@@ -30,4 +32,16 @@
         h-1
         rounded
         bg-gradient-to-l from-yellow-300 to-green-400
+}
+
+@media screen and (width > 768px) {
+    .goalContainer {
+        @apply
+            flex
+            flex-row
+            gap-0
+            p-2
+            px-8
+            justify-between
+    }
 }

@@ -2,6 +2,8 @@
     @apply 
         flex
         justify-between
+        items-center
+        p-2
         relative
         shadow
         h-xl
@@ -38,4 +40,20 @@
     @apply 
         w-8
         h-8
+}
+
+@media screen and (width > 768px) {
+    .logoContent {
+        @apply 
+            flex 
+            items-center
+            px-4 
+            py-2 
+            gap-1
+    }
+
+    .headerContainer {
+        @apply 
+            justify-between
+    }
 }
