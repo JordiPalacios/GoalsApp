@@ -1,15 +1,27 @@
 import { NavPage } from "./NavPage"
 import { IconText } from "./IconText"
 import styles from '../homePage/mainHome.module.css'
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 import { MenuContext } from "../../context/MenuContext"
+import { useWorkingMode } from "../../hooks/useWorkingMode"
 
 export const NavbarMenu = () => {
-
+    const [showMenu, setShowMenu] = useState(false)
     const [menuOpen] = useContext(MenuContext)
+    const workingMode = useWorkingMode()
+
+    useEffect(() => {
+
+        if ((workingMode === 'Mobile' && menuOpen) || (workingMode !== 'Mobile')) {
+            setShowMenu(true)
+        } else {
+            setShowMenu(false)
+        }
+
+    }, [menuOpen, workingMode])
 
     return (
-        <aside className={menuOpen ? `${styles.aside}` : 'hidden'}>
+        <aside className={showMenu ? `${styles.aside}` : 'hidden'}>
             <div className= "w-full">
                 <NavPage 
                 navigateTo={'/'} 

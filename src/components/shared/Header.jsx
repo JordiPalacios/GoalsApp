@@ -2,7 +2,7 @@ import { NavPage } from "./NavPage"
 import "../shared/styles/index.js"
 import styles from './styles/header.module.css'
 import { useWorkingMode } from "../../hooks/useWorkingMode.jsx"
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { MenuContext } from "../../context/MenuContext.jsx"
 
 export const Header = () => {
@@ -12,6 +12,15 @@ export const Header = () => {
     const handleToggleMenu = () => {
         action('toggle')
     }
+
+    useEffect(() => {
+        console.log('He entrado al useEffect')
+        if (workingMode !== 'Mobile' && menuOpen) {
+            console.log('He entrado al if')
+            action('toggle')
+        }
+        console.log('He salido del useEffect')
+    }, [workingMode])
 
     return (
         <header className={styles.headerContainer}>
