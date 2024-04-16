@@ -1,3 +1,5 @@
 export * from './useCounter'
 export * from './useForm'
 export * from './useFrecuency'
+export * from './useWindowSize'
+export * from './useWorkingMode'
